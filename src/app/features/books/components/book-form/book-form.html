@@ -1,0 +1,24 @@
+<form (submit)="onSubmit($event)">
+    <div>
+        <label for="title">Title</label>
+        <input id="title" type="text" [formField]="bookForm.title" />
+
+        @if (bookForm.title().invalid()) {Title is required.}
+    </div>
+
+    <div>
+        <label for="author">Author</label>
+        <input id="author" type="text" [formField]="bookForm.author" />
+
+        @if (bookForm.author().invalid()) {Author is required.}
+    </div>
+
+    <div>
+        <label for="pages">Pages</label>
+        <input id="pages" type="number" [formField]="bookForm.pages" />
+
+        @if (bookForm.pages().invalid()) {Pages must be greater than 0.}
+    </div>
+
+    <button type="submit">Add book</button>
+</form>
