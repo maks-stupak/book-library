@@ -9,13 +9,7 @@ export class BooksStore {
   readonly books = this.booksState.asReadonly();
 
   addBook(book: BookInput): void {
-    this.booksState.update((books) => [
-      ...books,
-      {
-        ...book,
-        id: crypto.randomUUID(),
-      },
-    ]);
+    this.booksState.update((books) => [...books, { ...book, id: crypto.randomUUID() }]);
   }
 
   updateBook(id: string, book: BookInput): void {
@@ -29,11 +23,6 @@ export class BooksStore {
   }
 
   replaceBooks(books: readonly BookInput[]): void {
-    this.booksState.set(
-      books.map((book) => ({
-        ...book,
-        id: crypto.randomUUID(),
-      })),
-    );
+    this.booksState.set(books.map((book) => ({ ...book, id: crypto.randomUUID() })));
   }
 }
