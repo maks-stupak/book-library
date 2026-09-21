@@ -6,6 +6,8 @@ import { BookList } from '../../components/book-list/book-list';
 import { BookForm } from '../../components/book-form/book-form';
 import { LibraryToolbar } from '../../components/library-toolbar/library-toolbar';
 import { parseBooksXml } from '../../../utils/book-xml.parser';
+import { serializeBooksToXml } from '../../../utils/book-xml.serializer';
+import { downloadFile } from '../../../utils/file-download';
 
 @Component({
   imports: [BookForm, BookList, LibraryToolbar],
@@ -68,5 +70,11 @@ export class LibraryPage {
     } catch {
       window.alert('Unable to import the selected XML file.');
     }
+  }
+
+  protected exportBooks(): void {
+    const xml = serializeBooksToXml(this.store.books());
+
+    downloadFile(xml, 'books.xml', 'application/xml');
   }
 }

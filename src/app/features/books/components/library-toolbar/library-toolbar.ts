@@ -10,6 +10,7 @@ export class LibraryToolbar {
   readonly searchChange = output<string>();
   readonly sort = output<void>();
   readonly importFile = output<File>();
+  readonly exportBooks = output<void>();
 
   protected updateSearch(event: Event): void {
     const input = event.target as HTMLInputElement;

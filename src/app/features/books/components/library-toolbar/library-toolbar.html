@@ -5,3 +5,5 @@
 
 <label for="book-import">Import XML</label>
 <input id="book-import" type="file" accept=".xml,application/xml" (change)="selectFile($event)" />
+
+<button type="button" (click)="exportBooks.emit()">Export xml</button>
