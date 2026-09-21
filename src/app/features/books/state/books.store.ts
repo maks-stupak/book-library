@@ -1,12 +1,19 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 
 import { Book, BookInput } from '../models/book.model';
+import { filterBooksByTitle } from '../../utils/book-filter';
 
 @Injectable()
 export class BooksStore {
   private readonly booksState = signal<readonly Book[]>([]);
+  private readonly searchQueryState = signal('');
 
   readonly books = this.booksState.asReadonly();
+  readonly searchQuery = this.searchQueryState.asReadonly();
+
+  readonly filteredBooks = computed(() =>
+    filterBooksByTitle(this.booksState(), this.searchQueryState()),
+  );
 
   addBook(book: BookInput): void {
     this.booksState.update((books) => [...books, { ...book, id: crypto.randomUUID() }]);
@@ -24,5 +31,9 @@ export class BooksStore {
 
   replaceBooks(books: readonly BookInput[]): void {
     this.booksState.set(books.map((book) => ({ ...book, id: crypto.randomUUID() })));
+  }
+
+  setSearchQuery(query: string): void {
+    this.searchQueryState.set(query);
   }
 }

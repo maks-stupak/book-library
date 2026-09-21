@@ -4,9 +4,10 @@ import { BooksStore } from '../../state/books.store';
 import { BookInput } from '../../models/book.model';
 import { BookList } from '../../components/book-list/book-list';
 import { BookForm } from '../../components/book-form/book-form';
+import { LibraryToolbar } from '../../components/library-toolbar/library-toolbar';
 
 @Component({
-  imports: [BookForm, BookList],
+  imports: [BookForm, BookList, LibraryToolbar],
   providers: [BooksStore],
   selector: 'app-library-page',
   styleUrl: './library-page.scss',
@@ -47,5 +48,9 @@ export class LibraryPage {
     this.store.removeBook(id);
 
     if (this.editingBookId() === id) this.editingBookId.set(null);
+  }
+
+  protected searchBooks(query: string): void {
+    this.store.setSearchQuery(query);
   }
 }
