@@ -1,3 +1,7 @@
 <label for="book-search">Search by title</label>
 
 <input id="book-search" type="search" placeholder="Search books..." (input)="updateSearch($event)" />
+
+<button type="button" (click)="sort.emit()">
+    Sort by author and title
+</button>

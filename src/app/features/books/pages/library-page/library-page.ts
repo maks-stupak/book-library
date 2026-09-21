@@ -53,4 +53,8 @@ export class LibraryPage {
   protected searchBooks(query: string): void {
     this.store.setSearchQuery(query);
   }
+
+  protected sortBooks(): void {
+    this.store.sortBooks();
+  }
 }

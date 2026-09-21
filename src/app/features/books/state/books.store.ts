@@ -2,6 +2,7 @@ import { computed, Injectable, signal } from '@angular/core';
 
 import { Book, BookInput } from '../models/book.model';
 import { filterBooksByTitle } from '../../utils/book-filter';
+import { sortBooksByAuthorAndTitle } from '../../utils/book-sort';
 
 @Injectable()
 export class BooksStore {
@@ -35,5 +36,9 @@ export class BooksStore {
 
   setSearchQuery(query: string): void {
     this.searchQueryState.set(query);
+  }
+
+  sortBooks(): void {
+    this.booksState.update((books) => sortBooksByAuthorAndTitle(books));
   }
 }

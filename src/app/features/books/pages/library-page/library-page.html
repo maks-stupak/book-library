@@ -1,6 +1,6 @@
 <h1>Book Library</h1>
 
-<app-library-toolbar (searchChange)="searchBooks($event)" />
+<app-library-toolbar (searchChange)="searchBooks($event)" (sort)="sortBooks()" />
 
 @if (editingBook(); as book) {
 <app-book-form mode="edit" [book]="book" (save)="updateBook($event)" (cancel)="cancelEditing()" />
