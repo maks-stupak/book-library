@@ -1,12 +1,11 @@
 <h1>Book Library</h1>
 
-<app-library-toolbar (searchChange)="searchBooks($event)" (sort)="sortBooks()" />
+<app-library-toolbar (searchChange)="searchBooks($event)" (sort)="sortBooks()" (importFile)="importBooks($event)" />
 
 @if (editingBook(); as book) {
 <app-book-form mode="edit" [book]="book" (save)="updateBook($event)" (cancel)="cancelEditing()" />
 } @else {
 <app-book-form mode="add" (save)="addBook($event)" />
 }
-
 
 <app-book-list [books]="store.filteredBooks()" (edit)="editBook($event)" (remove)="removeBook($event)"></app-book-list>

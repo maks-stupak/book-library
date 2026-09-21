@@ -5,6 +5,7 @@ import { BookInput } from '../../models/book.model';
 import { BookList } from '../../components/book-list/book-list';
 import { BookForm } from '../../components/book-form/book-form';
 import { LibraryToolbar } from '../../components/library-toolbar/library-toolbar';
+import { parseBooksXml } from '../../../utils/book-xml.parser';
 
 @Component({
   imports: [BookForm, BookList, LibraryToolbar],
@@ -56,5 +57,16 @@ export class LibraryPage {
 
   protected sortBooks(): void {
     this.store.sortBooks();
+  }
+
+  protected async importBooks(file: File): Promise<void> {
+    try {
+      const xml = await file.text();
+      const books = parseBooksXml(xml);
+
+      this.store.replaceBooks(books);
+    } catch {
+      window.alert('Unable to import the selected XML file.');
+    }
   }
 }
