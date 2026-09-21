@@ -5,9 +5,9 @@ import { BookInput } from '../../models/book.model';
 import { BookList } from '../../components/book-list/book-list';
 import { BookForm } from '../../components/book-form/book-form';
 import { LibraryToolbar } from '../../components/library-toolbar/library-toolbar';
-import { parseBooksXml } from '../../../utils/book-xml.parser';
-import { serializeBooksToXml } from '../../../utils/book-xml.serializer';
-import { downloadFile } from '../../../utils/file-download';
+import { parseBooksXml } from '../../utils/book-xml.parser';
+import { serializeBooksToXml } from '../../utils/book-xml.serializer';
+import { downloadFile } from '../../utils/file-download';
 
 @Component({
   imports: [BookForm, BookList, LibraryToolbar],

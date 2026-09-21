@@ -1,4 +1,4 @@
-import { Book } from '../books/models/book.model';
+import { Book } from '../models/book.model';
 
 export function serializeBooksToXml(books: readonly Book[]): string {
   const booksXml = books

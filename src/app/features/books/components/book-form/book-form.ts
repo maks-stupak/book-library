@@ -2,7 +2,7 @@ import { Component, input, linkedSignal, output, signal } from '@angular/core';
 import { form, FormField, min, required } from '@angular/forms/signals';
 
 import { Book, BookInput } from '../../models/book.model';
-import { getBookFormValue, getInitialBookFormValue } from '../../../utils/book.utils';
+import { getBookFormValue, getInitialBookFormValue } from '../../utils/book.utils';
 import { BookFormMode } from '../../models/book-form.model';
 
 @Component({

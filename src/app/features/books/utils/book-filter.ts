@@ -1,4 +1,4 @@
-import { Book } from '../books/models/book.model';
+import { Book } from '../models/book.model';
 
 export function filterBooksByTitle(books: readonly Book[], query: string): Book[] {
   const normalizedQuery = query.trim().toLowerCase();

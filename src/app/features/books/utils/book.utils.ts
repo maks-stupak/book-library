@@ -1,4 +1,4 @@
-import { Book, BookInput } from '../books/models/book.model';
+import { Book, BookInput } from '../models/book.model';
 
 export function getBookFormValue(book: Book): BookInput {
   return {

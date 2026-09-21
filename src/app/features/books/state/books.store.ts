@@ -1,8 +1,8 @@
 import { computed, Injectable, signal } from '@angular/core';
 
 import { Book, BookInput } from '../models/book.model';
-import { filterBooksByTitle } from '../../utils/book-filter';
-import { sortBooksByAuthorAndTitle } from '../../utils/book-sort';
+import { filterBooksByTitle } from '../utils/book-filter';
+import { sortBooksByAuthorAndTitle } from '../utils/book-sort';
 
 @Injectable()
 export class BooksStore {

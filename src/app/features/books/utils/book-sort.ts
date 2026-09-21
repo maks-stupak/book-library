@@ -1,4 +1,4 @@
-import { Book } from '../books/models/book.model';
+import { Book } from '../models/book.model';
 
 export function sortBooksByAuthorAndTitle(books: readonly Book[]): Book[] {
   return [...books].sort(

@@ -1,4 +1,4 @@
-import { BookInput } from '../books/models/book.model';
+import { BookInput } from '../models/book.model';
 
 export function parseBooksXml(xml: string): BookInput[] {
   const document = new DOMParser().parseFromString(xml, 'application/xml');
