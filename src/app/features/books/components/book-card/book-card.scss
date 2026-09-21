@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  width: 300px;
+  border-radius: 16px;
+  border: 1px solid #000;
+  padding: 16px;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+}

@@ -1,26 +1,29 @@
+<h3>{{ mode() === 'edit' ? 'Edit Book' : 'Add Book' }}</h3>
+
 <form (submit)="submitForm($event)">
-    <div>
+    <div class="input-box">
         <label for="title">Title</label>
         <input id="title" type="text" [formField]="bookForm.title" />
 
         @if (bookForm.title().invalid()) {Title is required.}
     </div>
 
-    <div>
+    <div class="input-box">
         <label for="author">Author</label>
         <input id="author" type="text" [formField]="bookForm.author" />
 
         @if (bookForm.author().invalid()) {Author is required.}
     </div>
 
-    <div>
+    <div class="input-box">
         <label for="pages">Pages</label>
         <input id="pages" type="number" [formField]="bookForm.pages" />
 
         @if (bookForm.pages().invalid()) {Pages must be greater than 0.}
     </div>
 
-    <button type="submit">{{ mode() === 'edit' ? 'Save changes' : 'Add book' }}</button>
-
-    @if (mode() === 'edit') {<button type="button" (click)="cancelEditing()">Cancel</button>}
+    <div class="controls">
+        <button type="submit">{{ mode() === 'edit' ? 'Save changes' : 'Add book' }}</button>
+        @if (mode() === 'edit') {<button type="button" (click)="cancelEditing()">Cancel</button>}
+    </div>
 </form>

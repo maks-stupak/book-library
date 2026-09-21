@@ -1,14 +1,9 @@
-<div>
-    <h2>{{ book().title }}</h2>
+<h2>{{ book().title }}</h2>
 
-    <p>{{ book().author }}</p>
-    <p>{{ book().pages }} pages</p>
+<p>{{ book().author }}</p>
+<p>{{ book().pages }} pages</p>
 
-    <button type="button" (click)="edit.emit(book().id)">
-        Edit
-    </button>
-
-    <button type="button" (click)="remove.emit(book().id)">
-        Delete
-    </button>
+<div class="controls">
+    <button type="button" (click)="edit.emit(book().id)">Edit</button>
+    <button type="button" (click)="remove.emit(book().id)">Delete</button>
 </div>

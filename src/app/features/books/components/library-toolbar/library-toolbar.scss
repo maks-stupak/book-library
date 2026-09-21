@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 8px;
+  border: 1px solid #000;
+  border-radius: 8px;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
