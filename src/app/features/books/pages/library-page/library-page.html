@@ -1,1 +1,2 @@
 <h1>Book Library</h1>
+<app-book-list [books]="store.books()" (edit)="editBook($event)" (remove)="removeBook($event)"></app-book-list>

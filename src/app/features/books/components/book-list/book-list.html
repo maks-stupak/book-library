@@ -1,0 +1,6 @@
+@for (book of books(); track book.id) {
+<app-book-card [book]="book" (edit)="edit.emit($event)" (remove)="remove.emit($event)"></app-book-card>
+}
+@empty {
+<p>No books in the library yet.</p>
+}
